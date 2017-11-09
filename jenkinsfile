@@ -1,12 +1,6 @@
-node {
-    def server
-    def buildInfo
-    def rtMaven
-    
-    stage ('Clone') {
-        git url: 'https://github.com/jfrogdev/project-examples.git'
-    }
- 
+pipeline {
+agent any
+
     stage ('Artifactory configuration') {
         // Obtain an Artifactory server instance, defined in Jenkins --> Manage:
         server = Artifactory.server SERVER_ID
